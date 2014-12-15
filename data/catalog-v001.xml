@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=1" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1300974445338" name="http://lsdis.cs.uga.edu/projects/meteor-s/wsdl-s/ontologies/PurchaseOrder.owl" uri="ontologies/PurchaseOrder.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1300974445338" name="http://lsdis.cs.uga.edu/projects/meteor-s/wsdl-s/ontologies/rosetta.owl" uri="ontologies/rosetta.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1300974445338" name="http://www.example.org/ontology3e84710c:1139cb9e449:-8000" uri="ontologies/wine.owl"/>
+    </group>
+</catalog>

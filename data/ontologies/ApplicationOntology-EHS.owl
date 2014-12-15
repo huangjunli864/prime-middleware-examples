@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY sa "http://www.erc-smscom.org/ontologies/2014/2/ehs#" > 
+]>
+
+
+
+<rdf:RDF xmlns="http://www.erc-smscom.org/ontologies/2013/4/ResourceDescription#"
+     xml:base="http://www.erc-smscom.org/ontologies/2014/2/ehs#"
+     xmlns:sa="http://www.erc-smscom.org/ontologies/2014/2/ehs#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    
+    <owl:Ontology rdf:about="http://www.erc-smscom.org/ontologies/2014/2/ehs">
+        <versionIRI rdf:resource="http://www.erc-smscom.org/ontologies/2014/2/ehs"/>
+    </owl:Ontology>
+    
+
+
+   
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+ 	<owl:Class rdf:about="&sa;Patient"/>
+ 	
+ 	<owl:Class rdf:about="&sa;QuickPatient"/>
+
+    <owl:Class rdf:about="&sa;Service"/>
+    
+    <owl:Class rdf:about="&sa;HumanResource">
+        <rdfs:subClassOf rdf:resource="&sa;Service"/>
+        <owl:sameAs rdf:resource="&sa;HumanResource" />
+    </owl:Class>
+    
+    <owl:Class rdf:about="&sa;Doctor1">
+        <rdfs:subClassOf rdf:resource="&sa;HumanService"/>
+        <owl:sameAs rdf:resource="&sa;Doctor1" />
+    </owl:Class>
+
+	<owl:Class rdf:about="&sa;Doctor2">
+        <rdfs:subClassOf rdf:resource="&sa;HumanService"/>
+        <owl:sameAs rdf:resource="&sa;Doctor2" />
+    </owl:Class>
+
+
+	<owl:Class rdf:about="&sa;QuickDoctor">
+        <rdfs:subClassOf rdf:resource="&sa;HumanService"/>
+        <owl:sameAs rdf:resource="&sa;QuickDoctor" />
+    </owl:Class>
+    
+	<owl:Class rdf:about="&sa;MedicalCenter">
+        <rdfs:subClassOf rdf:resource="&sa;Service"/>
+        <owl:sameAs rdf:resource="&sa;MedicalCenter" />
+    </owl:Class>
+    
+	<owl:Class rdf:about="&sa;QuickMedicalCenter">
+        <rdfs:subClassOf rdf:resource="&sa;Service"/>
+        <owl:sameAs rdf:resource="&sa;QuickMedicalCenter" />
+    </owl:Class>
+    
+    <owl:Class rdf:about="&sa;FirstAid">
+        <rdfs:subClassOf rdf:resource="&sa;Service"/>
+        <owl:sameAs rdf:resource="&sa;FirstAid" />
+    </owl:Class>
+    
+</rdf:RDF>

@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY sa "http://www.erc-smscom.org/ontologies/2013/4/eHealth#" > 
+]>
+
+
+
+<rdf:RDF xmlns="http://www.erc-smscom.org/ontologies/2013/4/ResourceDescription#"
+     xml:base="http://www.erc-smscom.org/ontologies/2013/4/eHealth"
+     xmlns:sa="http://www.erc-smscom.org/ontologies/2013/4/eHealth#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    
+    <owl:Ontology rdf:about="http://www.erc-smscom.org/ontologies/2013/4/eHealth">
+        <versionIRI rdf:resource="http://www.erc-smscom.org/ontologies/2013/4/eHealth"/>
+    </owl:Ontology>
+    
+
+
+   
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+ 
+
+    <owl:Class rdf:about="&sa;Service"/>
+    
+    <owl:Class rdf:about="&sa;HumanResource">
+        <rdfs:subClassOf rdf:resource="&sa;Service"/>
+        <owl:sameAs rdf:resource="&sa;HumanResource" />
+    </owl:Class>
+    
+    <owl:Class rdf:about="&sa;Doctor">
+        <rdfs:subClassOf rdf:resource="&sa;HumanService"/>
+        <owl:sameAs rdf:resource="&sa;Doctor" />
+    </owl:Class>
+
+    <owl:Class rdf:about="&sa;Technician">
+        <rdfs:subClassOf rdf:resource="&sa;HumanService"/>
+        <owl:sameAs rdf:resource="&sa;Technician" />
+    </owl:Class>
+
+	<owl:Class rdf:about="&sa;MedicalService">
+        <rdfs:subClassOf rdf:resource="&sa;Service"/>
+        <owl:sameAs rdf:resource="&sa;MedicalService" />
+    </owl:Class>
+    
+    <owl:Class rdf:about="&sa;HealthCenter">
+        <rdfs:subClassOf rdf:resource="&sa;Service"/>
+        <owl:sameAs rdf:resource="&sa;HealthCenter" />
+    </owl:Class>
+    
+    
+    <owl:Class rdf:about="&sa;TechnicalService">
+        <rdfs:subClassOf rdf:resource="&sa;Service"/>
+        <owl:sameAs rdf:resource="&sa;TechnicalService" />
+    </owl:Class>
+
+
+    <owl:Class rdf:about="&sa;AmbulanceService">
+        <rdfs:subClassOf rdf:resource="&sa;MedicalService"/>
+        <owl:sameAs rdf:resource="&sa;AmbulanceService" />
+    </owl:Class>
+    
+
+	<owl:Class rdf:about="&sa;Ambulance">
+        <rdfs:subClassOf rdf:resource="&sa;MedicalService"/>
+        <owl:sameAs rdf:resource="&sa;Ambulance" />
+    </owl:Class>
+
+	<owl:Class rdf:about="&sa;AirAmbulance">
+        <rdfs:subClassOf rdf:resource="&sa;Ambulance"/>
+        <owl:sameAs rdf:resource="&sa;AirAmbulance" />
+    </owl:Class>
+
+	<owl:Class rdf:about="&sa;CarAmbulance">
+        <rdfs:subClassOf rdf:resource="&sa;Ambulance"/>
+        <owl:sameAs rdf:resource="&sa;CarAmbulance" />
+    </owl:Class>
+
+	<owl:Class rdf:about="&sa;TruckAmbulance">
+        <rdfs:subClassOf rdf:resource="&sa;Ambulance"/>
+        <owl:sameAs rdf:resource="&sa;TruckAmbulance" />
+    </owl:Class>
+
+
+    <owl:Class rdf:about="&sa;AnalysisLab">
+        <rdfs:subClassOf rdf:resource="&sa;MedicalService"/>
+        <owl:sameAs rdf:resource="&sa;AnalysisLab" />
+    </owl:Class>
+    
+    <owl:Class rdf:about="&sa;Nursery">
+        <rdfs:subClassOf rdf:resource="&sa;MedicalService"/>
+        <owl:sameAs rdf:resource="&sa;Nursery" />
+    </owl:Class>
+    
+    <owl:Class rdf:about="&sa;OperatingRoom">
+        <rdfs:subClassOf rdf:resource="&sa;MedicalService"/>
+        <owl:sameAs rdf:resource="&sa;OperatingRoom" />
+    </owl:Class>
+    
+    
+    <owl:Class rdf:about="&sa;FirstAid">
+        <rdfs:subClassOf rdf:resource="&sa;MedicalService"/>
+        <owl:sameAs rdf:resource="&sa;FirstAid" />
+    </owl:Class>
+   
+    
+</rdf:RDF>

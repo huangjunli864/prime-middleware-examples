@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns="http://www.erc-smscom.org/ontologies/2013/4/ResourceDescription#"
+    xmlns:rdl="http://www.erc-smscom.org/ontologies/2013/4/ResourceDescription#"
+    xmlns:ex="http://www.erc-smscom.org/ontologies/2013/4/eHealth#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xml:base="http://www.erc-smscom.org/TSE-CaseStudy/"
+    >
+
+
+    <rdl:Resource rdl:cURI="AnalysisLab">
+    	<aURI><ex:AnalysisLab /></aURI>
+        <offers>
+	       <Interface>
+	          <method><GET rdl:semanticRef="getAvailability" rdl:output="text/html" /></method>
+	          <method><POST rdl:semanticRef="bookAnalysis" rdl:input="text/html" rdl:output="text/html" /></method>
+	       </Interface>
+        </offers>
+        <hasContext>
+           <Location rdl:latitude="45.510708" rdl:longitude="9.185987"/>
+        </hasContext>
+        <hasQoS>
+          <QoSSpecification> 
+            <availability>300.0</availability>
+            <reliability>0.9</reliability>
+  	  	    <response_time>10</response_time>
+	        <structural>1</structural>
+	        <cost><InvocationCost rdl:price="4"/></cost>
+	      </QoSSpecification>
+        </hasQoS>
+   </rdl:Resource>
+</rdf:RDF>

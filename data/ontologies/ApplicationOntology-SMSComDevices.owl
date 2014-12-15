@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+	<!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY sa "http://www.erc-smscom.org/ontologies/2013/12/Devices#" > 
+]>
+
+
+
+<rdf:RDF xmlns="http://www.erc-smscom.org/ontologies/2013/4/ResourceDescription#"
+     xml:base="http://www.erc-smscom.org/ontologies/2013/12/Devices"
+     xmlns:sa="http://www.erc-smscom.org/ontologies/2013/12/Devices#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    
+    <owl:Ontology rdf:about="http://www.erc-smscom.org/ontologies/2013/12/Devices">
+        <versionIRI rdf:resource="http://www.erc-smscom.org/ontologies/2013/12/Devices"/>
+    </owl:Ontology>
+    
+
+
+   
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+ 
+
+    <owl:Class rdf:about="&sa;Device"/>
+    
+    <owl:Class rdf:about="&sa;Sensor">
+        <rdfs:subClassOf rdf:resource="&sa;Device"/>
+        <owl:sameAs rdf:resource="&sa;Sensor" />
+    </owl:Class>
+    
+    <owl:Class rdf:about="&sa;Temperature">
+        <rdfs:subClassOf rdf:resource="&sa;Sensor"/>
+        <owl:sameAs rdf:resource="&sa;Temperature" />
+    </owl:Class>
+
+    <owl:Class rdf:about="&sa;Humidity">
+        <rdfs:subClassOf rdf:resource="&sa;Sensor"/>
+        <owl:sameAs rdf:resource="&sa;Humidity" />
+    </owl:Class>
+
+	<owl:Class rdf:about="&sa;SmartPhone">
+        <rdfs:subClassOf rdf:resource="&sa;Device"/>
+        <owl:sameAs rdf:resource="&sa;SmatPhone" />
+    </owl:Class>
+    
+    <owl:Class rdf:about="&sa;Printer">
+        <rdfs:subClassOf rdf:resource="&sa;Device"/>
+        <owl:sameAs rdf:resource="&sa;Printer" />
+    </owl:Class>
+
+
+    <owl:Class rdf:about="&sa;Projector">
+        <rdfs:subClassOf rdf:resource="&sa;Device"/>
+        <owl:sameAs rdf:resource="&sa;Projector" />
+    </owl:Class>
+    
+
+	<owl:Class rdf:about="&sa;Computer">
+        <rdfs:subClassOf rdf:resource="&sa;Device"/>
+        <owl:sameAs rdf:resource="&sa;Computer" />
+    </owl:Class>
+
+	<owl:Class rdf:about="&sa;Laptop">
+        <rdfs:subClassOf rdf:resource="&sa;Computer"/>
+        <owl:sameAs rdf:resource="&sa;Laptop" />
+    </owl:Class>
+
+	<owl:Class rdf:about="&sa;Desktop">
+        <rdfs:subClassOf rdf:resource="&sa;Computer"/>
+        <owl:sameAs rdf:resource="&sa;Desktop" />
+    </owl:Class>
+
+	<owl:Class rdf:about="&sa;TruckAmbulance">
+        <rdfs:subClassOf rdf:resource="&sa;Ambulance"/>
+        <owl:sameAs rdf:resource="&sa;TruckAmbulance" />
+    </owl:Class>
+
+
+    <owl:Class rdf:about="&sa;Tablet">
+        <rdfs:subClassOf rdf:resource="&sa;Device"/>
+        <owl:sameAs rdf:resource="&sa;Tablet" />
+    </owl:Class>
+    
+    
+</rdf:RDF>

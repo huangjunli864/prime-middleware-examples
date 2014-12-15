@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1387199729260" name="http://www.erc-smscom.org/PRIME-env.owl" uri="PRIME-EnvOntology.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1387199729260" name="http://www.erc-smscom.org/ontologies/2013/12/Devices" uri="ApplicationOntology-SMSComDevices.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1387199729260" name="http://www.erc-smscom.org/ontologies/2013/4/ResourceDescription" uri="ResourceDescriptionOntology.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1387199729260" name="http://www.erc-smscom.org/ontologies/2013/4/ServiceAssembly" uri="ApplicationOntology-ServiceAssembly.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1387199729260" name="http://www.erc-smscom.org/ontologies/2013/4/eHealth" uri="ApplicationOntology-eHealth.owl"/>
+    </group>
+</catalog>

@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+ <xs:schema targetNamespace="http://erc-smscom.org/rdl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:rdl="http://erc-smscom.org/rdl">
+
+    <xs:include schemaLocation=""></xs:include>
+
+
+
+
+	<xs:complexType name="sem-annotation">
+		<xs:sequence minOccurs="0" maxOccurs="1">
+			<xs:element name="expression" type="xs:string"></xs:element>
+		</xs:sequence>
+        <xs:attribute name="name" type="xs:string"></xs:attribute>
+        <xs:attribute name="semanticRef" type="xs:anyURI"
+			use="required" />
+	</xs:complexType>
+
+
+	<xs:complexType name="functional">
+  <xs:sequence>
+            <xs:element name="comment" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+            <xs:element name="get" type="rdl:operation" minOccurs="0"
+  		maxOccurs="1" />
+  	<xs:element name="delete" type="rdl:operation" minOccurs="0"
+  		maxOccurs="1" />
+  	<xs:element name="inspection" type="rdl:operation" minOccurs="0"
+  		maxOccurs="1" />
+  	<xs:element name="put" type="rdl:IO-operation" minOccurs="0"
+  		maxOccurs="1" />
+  	<xs:element name="post" type="rdl:IO-operation" minOccurs="0"
+  		maxOccurs="1" />
+  </xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="operation">
+		<xs:sequence>
+		</xs:sequence>
+		<xs:attribute name="semanticRef" type="xs:anyURI"
+			use="required" />
+		<xs:attribute name="output" type="xs:string"></xs:attribute>
+	</xs:complexType>
+
+
+
+	<xs:complexType name="description">
+		<xs:sequence>
+			<xs:element name="importsOntology" type="rdl:ontology"
+				maxOccurs="unbounded" minOccurs="1">
+			</xs:element>
+			<xs:element name="functional" type="rdl:functional" />
+			<xs:element name="context" type="rdl:context" />
+			<xs:element name="qos" type="rdl:qos" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="dependences" type="rdl:dependences" maxOccurs="1" minOccurs="0"></xs:element>
+		</xs:sequence>
+		<xs:attribute name="cURI" type="xs:string"></xs:attribute>
+		<xs:attribute name="aURI" type="xs:string" use="required" />
+	</xs:complexType>
+
+	<xs:element name="description" type="rdl:description" />
+
+
+
+	<xs:complexType name="IO-operation">
+		<xs:complexContent>
+			<xs:extension base="rdl:operation">
+				<xs:attribute name="input" type="xs:string"></xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+
+
+	<xs:complexType name="context">
+		<xs:sequence>
+			<xs:element name="comment" type="xs:string" maxOccurs="1" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="qos">
+		<xs:sequence>
+			<xs:element name="Reliability" type="xs:double"></xs:element>
+			<xs:element name="Cost" type="rdl:cost"></xs:element>
+			<xs:element name="ResponseTime" type="xs:double"></xs:element>
+			<xs:element name="Structural" type="xs:double"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ontology">
+		<xs:attribute name="URI" type="xs:string"></xs:attribute>
+		<xs:attribute name="ns" type="xs:string"></xs:attribute>
+		<xs:attribute name="prefix" type="xs:string"></xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="dependences">
+		<xs:sequence>
+			<xs:element name="requires" type="rdl:require" maxOccurs="unbounded" minOccurs="1"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="require">
+		<xs:attribute name="type" type="xs:string"></xs:attribute>
+		<xs:attribute name="times" type="xs:int"></xs:attribute>
+	</xs:complexType>
+	
+    <xs:simpleType name="ContentType">
+  		<xs:restriction base="xs:string">
+    		<xs:enumeration value="text/plain" />
+    		<xs:enumeration value="text/html" />
+    		<xs:enumeration value="application/xml" />
+    		<xs:enumeration value="application/json" />
+  		</xs:restriction>
+	</xs:simpleType>
+    
+    
+
+    <xs:complexType name="cost">
+    	<xs:simpleContent>
+    		<xs:extension base="xs:double">
+    			<xs:attribute name="type" use="required">
+    				<xs:simpleType>
+    					<xs:restriction base="xs:string">
+    						<xs:enumeration value="flat"></xs:enumeration>
+    						<xs:enumeration value="invocation"></xs:enumeration>
+    						<xs:minLength value="1"></xs:minLength>
+    					</xs:restriction>
+    				</xs:simpleType>
+    			</xs:attribute>
+    		</xs:extension>
+    	</xs:simpleContent>
+    </xs:complexType>
+</xs:schema>

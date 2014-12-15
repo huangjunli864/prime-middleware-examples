@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdl:description cURI="Service5" aURI="http://www.erc-smscom.org/ServiceAssembly#Type3" 
+	xmlns:rdl="http://erc-smscom.org/rdl" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://erc-smscom.org/rdl ResourceDescriptionLanguage.xsd">
+	<importsOntology 
+		URI = "http://www.erc-smscom.org/ServiceAssembly.rdf"
+		ns  = "http://www.erc-smscom.org/ServiceAssembly"
+		prefix = "http://www.erc-smscom.org/ServiceAssembly#"/>
+	
+  <functional>
+    <comment>
+       This resource implements a GeoLocationBase Service
+    </comment>
+    
+  	
+    <get semanticRef="ns:Location">
+      <output xsi:type="rdl:simpleData" name="location" Content-Type="application/xml" semanticRef="Location" />
+    </get>
+    
+  </functional>
+  <context>
+  	<comment>context</comment>
+  </context>
+  <qos>
+    <Reliability>0.2</Reliability>
+  	<Cost type="flat">4</Cost>
+  	<ResponseTime>10</ResponseTime>
+  	<Structural>1</Structural>
+  </qos>
+</rdl:description>
+

@@ -1,0 +1,400 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY PRIME-env "http://www.erc-smscom.org/PRIME-env#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.erc-smscom.org/PRIME-env.owl#"
+     xml:base="http://www.erc-smscom.org/PRIME-env.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:PRIME-env="http://www.erc-smscom.org/PRIME-env#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.erc-smscom.org/PRIME-env.owl">
+        <rdfs:comment>The ontology that describes devices available within the environment and their properties</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env#connectedTo -->
+
+    <owl:ObjectProperty rdf:about="&PRIME-env;connectedTo">
+        <rdfs:domain rdf:resource="&PRIME-env;Device"/>
+        <rdfs:range rdf:resource="&PRIME-env;Network"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env#has -->
+
+    <owl:ObjectProperty rdf:about="&PRIME-env;has"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env#3GNetwork -->
+
+    <owl:Class rdf:about="&PRIME-env;3GNetwork">
+        <rdfs:subClassOf rdf:resource="&PRIME-env;WirelessNetwork"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env#BluetoothNetwork -->
+
+    <owl:Class rdf:about="&PRIME-env;BluetoothNetwork">
+        <rdfs:subClassOf rdf:resource="&PRIME-env;WirelessNetwork"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env#Computer -->
+
+    <owl:Class rdf:about="&PRIME-env;Computer">
+        <rdfs:subClassOf rdf:resource="&PRIME-env;Device"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&PRIME-env;connectedTo"/>
+                <owl:someValuesFrom rdf:resource="&PRIME-env;Network"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&PRIME-env;has"/>
+                <owl:someValuesFrom rdf:resource="&PRIME-env;DataPresenter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env#DataPresenter -->
+
+    <owl:Class rdf:about="&PRIME-env;DataPresenter">
+        <rdfs:subClassOf rdf:resource="&PRIME-env;Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env#Desktop -->
+
+    <owl:Class rdf:about="&PRIME-env;Desktop">
+        <rdfs:subClassOf rdf:resource="&PRIME-env;Computer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env#Device -->
+
+    <owl:Class rdf:about="&PRIME-env;Device">
+        <owl:disjointWith rdf:resource="&PRIME-env;Network"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env#Display -->
+
+    <owl:Class rdf:about="&PRIME-env;Display">
+        <rdfs:subClassOf rdf:resource="&PRIME-env;DataPresenter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env#EthernetNetwork -->
+
+    <owl:Class rdf:about="&PRIME-env;EthernetNetwork">
+        <rdfs:subClassOf rdf:resource="&PRIME-env;WiredNetwork"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env#GPRSNetwork -->
+
+    <owl:Class rdf:about="&PRIME-env;GPRSNetwork">
+        <rdfs:subClassOf rdf:resource="&PRIME-env;3GNetwork"/>
+        <owl:disjointWith rdf:resource="&PRIME-env;UMTSNetwork"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env#Laptop -->
+
+    <owl:Class rdf:about="&PRIME-env;Laptop">
+        <rdfs:subClassOf rdf:resource="&PRIME-env;Computer"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&PRIME-env;has"/>
+                <owl:onClass rdf:resource="&PRIME-env;Display"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env#Network -->
+
+    <owl:Class rdf:about="&PRIME-env;Network"/>
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env#Printer -->
+
+    <owl:Class rdf:about="&PRIME-env;Printer">
+        <rdfs:subClassOf rdf:resource="&PRIME-env;DataPresenter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env#Projector -->
+
+    <owl:Class rdf:about="&PRIME-env;Projector">
+        <rdfs:subClassOf rdf:resource="&PRIME-env;DataPresenter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env#Sensor -->
+
+    <owl:Class rdf:about="&PRIME-env;Sensor">
+        <rdfs:subClassOf rdf:resource="&PRIME-env;Device"/>
+        <owl:sameAs rdf:resource="&PRIME-env;Sensor" />
+    </owl:Class>
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env#Smartphone -->
+
+    <owl:Class rdf:about="&PRIME-env;Smartphone">
+        <rdfs:subClassOf rdf:resource="&PRIME-env;Device"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&PRIME-env;has"/>
+                <owl:onClass rdf:resource="&PRIME-env;Display"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&PRIME-env;connectedTo"/>
+                <owl:someValuesFrom rdf:resource="&PRIME-env;3GNetwork"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&PRIME-env;connectedTo"/>
+                <owl:onClass rdf:resource="&PRIME-env;BluetoothNetwork"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env#StructuredNetwork -->
+
+    <owl:Class rdf:about="&PRIME-env;StructuredNetwork">
+        <rdfs:subClassOf rdf:resource="&PRIME-env;WiFiNetwork"/>
+        <owl:disjointWith rdf:resource="&PRIME-env;UnstructuredNetwork"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env#Tablet -->
+
+    <owl:Class rdf:about="&PRIME-env;Tablet">
+        <rdfs:subClassOf rdf:resource="&PRIME-env;Device"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&PRIME-env;has"/>
+                <owl:someValuesFrom rdf:resource="&PRIME-env;Projector"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&PRIME-env;has"/>
+                <owl:someValuesFrom rdf:resource="&PRIME-env;Printer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&PRIME-env;has"/>
+                <owl:onClass rdf:resource="&PRIME-env;Display"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env#UMTSNetwork -->
+
+    <owl:Class rdf:about="&PRIME-env;UMTSNetwork">
+        <rdfs:subClassOf rdf:resource="&PRIME-env;3GNetwork"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env#UnstructuredNetwork -->
+
+    <owl:Class rdf:about="&PRIME-env;UnstructuredNetwork">
+        <rdfs:subClassOf rdf:resource="&PRIME-env;WiFiNetwork"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env#WiFiNetwork -->
+
+    <owl:Class rdf:about="&PRIME-env;WiFiNetwork">
+        <rdfs:subClassOf rdf:resource="&PRIME-env;WirelessNetwork"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env#WiredNetwork -->
+
+    <owl:Class rdf:about="&PRIME-env;WiredNetwork">
+        <rdfs:subClassOf rdf:resource="&PRIME-env;Network"/>
+        <owl:disjointWith rdf:resource="&PRIME-env;WirelessNetwork"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env#WirelessNetwork -->
+
+    <owl:Class rdf:about="&PRIME-env;WirelessNetwork">
+        <rdfs:subClassOf rdf:resource="&PRIME-env;Network"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env#Workstation -->
+
+    <owl:Class rdf:about="&PRIME-env;Workstation">
+        <rdfs:subClassOf rdf:resource="&PRIME-env;Computer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env.owl#Actions -->
+
+    <owl:Class rdf:about="http://www.erc-smscom.org/PRIME-env.owl#Actions"/>
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env.owl#NetworkPrinter -->
+
+    <owl:Class rdf:about="http://www.erc-smscom.org/PRIME-env.owl#NetworkPrinter">
+        <rdfs:subClassOf rdf:resource="&PRIME-env;Printer"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&PRIME-env;connectedTo"/>
+                <owl:onClass rdf:resource="&PRIME-env;EthernetNetwork"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env.owl#PhoneCall -->
+
+    <owl:Class rdf:about="http://www.erc-smscom.org/PRIME-env.owl#PhoneCall">
+        <rdfs:subClassOf rdf:resource="http://www.erc-smscom.org/PRIME-env.owl#Actions"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.erc-smscom.org/PRIME-env.owl#Print -->
+
+    <owl:Class rdf:about="http://www.erc-smscom.org/PRIME-env.owl#Print">
+        <rdfs:subClassOf rdf:resource="http://www.erc-smscom.org/PRIME-env.owl#Actions"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&PRIME-env;3GNetwork"/>
+            <rdf:Description rdf:about="&PRIME-env;BluetoothNetwork"/>
+            <rdf:Description rdf:about="&PRIME-env;WiFiNetwork"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&PRIME-env;Computer"/>
+            <rdf:Description rdf:about="&PRIME-env;Printer"/>
+            <rdf:Description rdf:about="&PRIME-env;Sensor"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&PRIME-env;Printer"/>
+            <rdf:Description rdf:about="&PRIME-env;Sensor"/>
+            <rdf:Description rdf:about="&PRIME-env;Smartphone"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&PRIME-env;Desktop"/>
+            <rdf:Description rdf:about="&PRIME-env;Laptop"/>
+            <rdf:Description rdf:about="&PRIME-env;Workstation"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.2.1785) http://owlapi.sourceforge.net -->
+

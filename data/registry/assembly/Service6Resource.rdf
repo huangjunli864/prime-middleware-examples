@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns="http://www.smscom.org/ontologies/2013/4/ResourceDescription#"
+    xmlns:rdl="http://www.smscom.org/ontologies/2013/4/ResourceDescription#"
+    xmlns:ex="http://www.erc-smscom.org/ontologies/2013/4/ServiceAssembly#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xml:base="http://www.smscom.org/Example1/"
+    >
+
+
+    <rdl:Resource rdf:ID="IPGeoLocalization">
+    	<aURI><ex:Type7 /></aURI>
+    	<cURI rdf:resource="Service6"/>
+        <offers>
+	       <Interface>
+	          <method><POST rdl:semanticRef="getGeoCoordinates" rdl:input="text/html" rdl:output="text/html" /></method>
+	       </Interface>
+        </offers>
+        <hasContext>
+           <Location rdl:latitude="45.47787" rdl:longitude="9.23457"/>
+        </hasContext>
+        <hasQoS>
+          <QoSSpecification> 
+            <reliability>0.9</reliability>
+  	  	    <response_time>10</response_time>
+	        <structural>1</structural>
+	        <cost><InvocationCost rdl:price="4"/></cost>
+	      </QoSSpecification>
+        </hasQoS>
+   </rdl:Resource>
+</rdf:RDF>

@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY rdl "http://www.erc-smscom.org/ontologies/2013/4/ResourceDescription#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.erc-smscom.org/ontologies/2013/4/ResourceDescription#"
+     xml:base="http://www.erc-smscom.org/ontologies/2013/4/ResourceDescription"
+     xmlns:rdl="http://www.erc-smscom.org/ontologies/2013/4/ResourceDescription#"
+     xmlns:ex="http://www.erc-smscom.org/ontologies/2013/4/ServiceAssembly.rdf#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    
+    <owl:Ontology rdf:about="http://www.erc-smscom.org/ontologies/2013/4/ResourceDescription">
+        <owl:versionIRI rdf:resource="http://www.erc-smscom.org/ontologies/2013/4/ResourceDescription"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <!-- ================================================================== -->
+    <!-- Resource -->
+    <!-- ================================================================== -->
+    <owl:Class rdf:ID="Resource"/>
+
+
+  
+  	<owl:ObjectProperty rdf:ID="aURI">
+        <rdfs:domain rdf:resource="&rdl;Resource"/>
+        <rdfs:range rdf:resource="&owl;Class"/>
+    </owl:ObjectProperty>
+  
+    
+    <owl:DatatypeProperty rdf:ID="cURI">
+        <rdfs:domain rdf:resource="&rdl;Resource"/>
+	    <rdfs:range  rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+    <owl:ObjectProperty rdf:ID="expose">
+        <rdfs:domain rdf:resource="&rdl;Resource"/>
+        <rdfs:range rdf:resource="&rdl;Interface"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:ID="hasContext">
+        <rdfs:domain rdf:resource="&rdl;Resource"/>
+        <rdfs:range rdf:resource="&rdl;Context"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:ID="hasQoS">
+        <rdfs:domain rdf:resource="&rdl;Resource"/>
+        <rdfs:range rdf:resource="&rdl;QoSSpecification"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:ID="requires">
+        <rdfs:domain rdf:resource="&rdl;Resource"/>
+        <rdfs:range rdf:resource="&rdl;RequirementsSpecification"/>
+    </owl:ObjectProperty>
+    
+    <!-- =========================================================== -->
+    <!-- Interface -->
+    <!-- =========================================================== -->
+
+    <owl:Class rdf:ID="Interface"/>
+     
+    <owl:ObjectProperty rdf:ID="method">
+        <rdfs:domain rdf:resource="&rdl;Interface"/>
+        <rdfs:range rdf:resource="&rdl;Capability"/>
+    </owl:ObjectProperty>
+    
+     <!-- =========================================================== -->
+     <!-- Capability -->
+     <!-- =========================================================== -->
+     <owl:Class rdf:ID="Capability">
+      <owl:oneOf rdf:parseType="Collection">
+	 	<Capability rdf:about="GET" />
+	 	<Capability rdf:about="DELETE" />
+	 	<Capability rdf:about="OPTIONS" />
+	 	<Capability rdf:about="PUT" />
+	 	<Capability rdf:about="POST" />
+      </owl:oneOf>
+     </owl:Class>
+       
+     <owl:DatatypeProperty rdf:ID="annotation">
+        <rdfs:domain rdf:resource="&rdl;Capability"/>
+	    <rdfs:range rdf:resource="&xsd;string"/>
+     </owl:DatatypeProperty>
+
+     <owl:DatatypeProperty rdf:ID="output">
+        <rdfs:domain rdf:resource="&rdl;Capability"/>
+        <rdfs:range  rdf:resource="&xsd;string"/>
+     </owl:DatatypeProperty>
+
+     <owl:DatatypeProperty rdf:ID="input">
+        <rdfs:domain rdf:resource="&rdl;POST"/>
+		<rdfs:domain rdf:resource="&rdl;PUT"/>
+        <rdfs:range  rdf:resource="&xsd;string"/>
+     </owl:DatatypeProperty>
+     
+
+    <!-- =========================================================== -->
+    <!--ContextDefinition -->
+    <!-- =========================================================== -->
+    <owl:Class rdf:ID="Context">
+      <owl:oneOf rdf:parseType="Collection">
+	 <Context rdf:about="Location" />
+      </owl:oneOf>
+    </owl:Class>
+
+    <owl:DatatypeProperty rdf:ID="latitude">
+      <rdfs:domain rdf:resource="&rdl;Location"/>
+      <rdfs:range  rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:ID="longitude">
+      <rdfs:domain rdf:resource="&rdl;Location"/>
+      <rdfs:range  rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+    <!-- =========================================================== -->
+    <!--QoSSpecification -->
+    <!-- =========================================================== -->
+
+    <owl:Class rdf:ID="QoSSpecification"/>
+      
+
+    <owl:DatatypeProperty rdf:ID="reliability">
+      <rdfs:domain rdf:resource="&rdl;QoSSpecification"/>
+      <rdfs:range  rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+
+	<owl:DatatypeProperty rdf:ID="availability">
+      <rdfs:domain rdf:resource="&rdl;QoSSpecification"/>
+      <rdfs:range  rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+
+
+    <owl:DatatypeProperty rdf:ID="response_time">
+      <rdfs:domain rdf:resource="&rdl;QoSSpecification"/>
+      <rdfs:range  rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:ID="structural">
+      <rdfs:domain rdf:resource="&rdl;QoSSpecification"/>
+      <rdfs:range  rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+
+    <owl:ObjectProperty rdf:ID="cost">
+      <rdfs:domain rdf:resource="&rdl;QoSSpecification"/>
+      <rdfs:range rdf:resource="&rdl;CostDefinition"/>
+    </owl:ObjectProperty>    
+
+    <owl:Class rdf:ID="CostDefinition">
+      <owl:oneOf rdf:parseType="Collection">
+	 <CostDefinition rdf:about="FlatCost" />
+	 <CostDefinition rdf:about="InvocationCost" />
+      </owl:oneOf>
+    </owl:Class>
+
+    <owl:DatatypeProperty rdf:ID="price">
+      <rdfs:domain rdf:resource="&rdl;CostDefinition"/>
+      <rdfs:range  rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+
+     <!-- =========================================================== -->
+     <!-- Requirements Specification -->
+     <!-- =========================================================== -->
+
+    <rdfs:Class rdf:ID="RequirementsSpecification"/>
+     
+    <owl:DatatypeProperty rdf:ID="type">
+      <rdfs:domain rdf:resource="&rdl;RequirementsSpecification"/>
+      <rdfs:range  rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:ID="times">
+      <rdfs:domain rdf:resource="&rdl;RequirementsSpecification"/>
+      <rdfs:range  rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:ID="metrics">
+      <rdfs:domain rdf:resource="&rdl;RequirementsSpecification"/>
+      <rdfs:range  rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+</rdf:RDF>
+
+
+
+

@@ -1,0 +1,4 @@
+2014-02-20 16:36:12,916 INFO [main] o.r.C.I.Client [Slf4jLogger.java:141] Starting the internal [HTTP/1.1] client
+2014-02-20 16:36:12,975 INFO [main] o.r.C.I.Server [Slf4jLogger.java:141] Starting the internal [HTTP/1.1] server on port 8111
+2014-02-20 16:36:13,487 INFO [main] o.s.p.c.p.PastryGateway [PastryGateway.java:143] Pastry node <0x6C75D6..> has joined the ring at: /131.175.135.76:1308
+2014-02-20 16:36:14,198 INFO [main] PrimeApplication [PrimeApplication.java:282] New resource registered at: 131.175.135.76:8111/AirOne/AirAmbulance
